@@ -49,8 +49,8 @@
             >
             
             <a
-              href="{{ route('dashboard-settings-store') }} {{ (request()->is('dashboard/settings*')) ? 'active' : '' }}"
-              class="list-group-item list-group-item-action"
+              href="{{ route('dashboard-settings-store') }} "
+              class="list-group-item list-group-item-action {{ (request()->is('dashboard/settings*')) ? 'active' : '' }}"
               >Pengaturan Toko</a
             >
             <a

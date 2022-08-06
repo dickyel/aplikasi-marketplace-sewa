@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Swa Mobile Transaksi Admin
+    Swa Mobile Dashboard Transaksi Admin
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@
         <div class="dashboard-heading">
             <h2 class="dashboard-title">Transaksi</h2>
             <p class="dashboard-subtitle">
-                Daftar List Transaksi
+                Daftar - daftar transaksi User
             </p>
         </div>
         <div class="dashboard-content">
@@ -33,7 +33,7 @@
                                         <th>Akhir Booking</th>
                                         <th>Nomor Telepon</th>
                                         <th>Alamat</th>
-                                        <th>Status</th>
+                                        <th>Status Transaksi</th>
                                         <th>Dibooking Oleh</th>
                                         <th>Dibuat</th>
                                         <th>Aksi</th>
@@ -51,10 +51,9 @@
 </div>
 @endsection
 
-
 @push('addon-script')
     <script>
-        
+        // AJAX DataTablenn
         var datatable = $('#crudTable').DataTable({
             processing: true,
             serverSide: true,
@@ -70,6 +69,7 @@
                 { data: 'booking_last', name: 'booking_last' },
                 { data: 'phone_number', name: 'phone_number' },
                 { data: 'address', name: 'address' },
+               
                 { data: 'transaction_status', name: 'transaction_status' },
                 { data: 'user.name', name: 'user.name' },
                 { data: 'created_at', name: 'created_at' },

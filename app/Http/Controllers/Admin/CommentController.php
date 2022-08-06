@@ -17,7 +17,7 @@ class CommentController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $query = Comment::with(['user']);
+            $query = Comment::with(['user','product']);
 
             return Datatables::of($query)
                 ->addColumn('action', function ($item) {

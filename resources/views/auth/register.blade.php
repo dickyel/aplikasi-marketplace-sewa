@@ -242,9 +242,9 @@
                 >
                   Register Sekarang
                 </button>
-                <button type="{{ route('login') }}" class="btn btn-signup btn-block mt-2">
+                <a href="{{ route('login') }}" class="btn btn-signup btn-block mt-2">
                   Kembali Login
-                </button>
+                </a>
               </form>
             </div>
           </div>

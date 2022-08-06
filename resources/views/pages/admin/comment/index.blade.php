@@ -12,9 +12,9 @@
     >
     <div class="container-fluid">
         <div class="dashboard-heading">
-            <h2 class="dashboard-title">Komen Pada Toko</h2>
+            <h2 class="dashboard-title">Komen Pada Produk Toko</h2>
             <p class="dashboard-subtitle">
-                Daftar - daftar komentar user pada toko masing-masing
+                Daftar - daftar komentar user pada produk toko masing-masing
             </p>
         </div>
         <div class="dashboard-content">
@@ -30,7 +30,7 @@
                                         <th>ID</th>
                                         <th>Orang Yang Koment</th>
                                         <th>Toko Pemilik Produk</th>
-                                        
+                                        <th>Nama Produk</th>
                                         <th>Rating</th>
                                         <th>Pesan Deskripsi</th>
                                         <th>Aksi</th>
@@ -63,7 +63,7 @@
                 { data: 'id', name: 'id' },
                 { data: 'user.name', name: 'user.name' },
                 { data: 'user.store_name', name: 'user.store_name' },
-                
+                { data: 'product.name', name: 'product.name' },
                 { data: 'rating', name: 'rating' },
                 { data: 'message', name: 'user.message' },
                 {

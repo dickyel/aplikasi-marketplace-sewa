@@ -226,19 +226,12 @@
         </div>
       </div>
       <div class="row" data-aos="fade-up" data-aos-delay="200">
-        <div class="col-4 col-md-2">
-          <div class="product-title" >23 Februari 2022</div>
-          <div class="product-subtitle">Tanggal Mulai</div>
-        </div>
+        
         <div class="col-4 col-md-3">
-          <div class="product-title">23 Februari 2022</div>
-          <div class="product-subtitle">Tanggal Akhir</div>
-        </div>
-        <div class="col-4 col-md-2">
           <div class="product-title">{{ number_format($totalDay)  }}  Hari </div>
           <div class="product-subtitle">Jumlah Hari </div>
         </div>
-        <div class="col-4 col-md-2">
+        <div class="col-4 col-md-3">
           <div class="product-title text-success">Rp. {{ number_format($totalPrice ?? 0) }}</div>
           <div class="product-subtitle">Total Harga</div>
         </div>

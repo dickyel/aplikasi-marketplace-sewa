@@ -27,10 +27,10 @@
                     <div class="card-body ">
                         <div class="row">
                             
-                            <div class="col-md-5">
+                            <div class="col-md-7">
                             {{ $comment->message }}
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-3">
                                 <div class="rating-user">
                                     @if($comment->rating == 5)
                                         <div class="star-icon">
@@ -86,12 +86,9 @@
                                 </div>
                             </div>
                             
-                            <div class="col-md-2 d-none d-md-block">
-                                <img
-                                    src="/images/dashboard-arrow-right.svg"
-                                    alt=""
-                                />
-                            </div> 
+                            <div class="col-md-2">
+                                {{ $comment->user->name }}
+                            </div>
                             
                             
                         </div>

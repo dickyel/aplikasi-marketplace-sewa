@@ -15,8 +15,9 @@
                 Booking Kamu Berhasil Masuk!
               </h2>
               <p>
-                Silahkan datang ke toko kami sesuai jadwal booking barang , <br />
-                kami akan menginformasikan resi secepat mungkin via email!
+                Silahkan datang ke toko kami sesuai jadwal booking barang, <br/>
+                kami akan menginformasikan resi secepat mungkin via dashboard anda, <br/>
+                dan perlihatkan resi yang masuk kepada pemilik toko....
               </p>
               <div>
                 <a class="btn btn-success w-50 mt-4" href="{{ route('dashboard') }}">

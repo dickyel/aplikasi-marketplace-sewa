@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-    Dashboard Transaction Detail
+    Dashboard Detail Transaksi
 @endsection
 
 @section('content')
@@ -11,9 +11,9 @@
 >
   <div class="container-fluid">
     <div class="dashboard-heading">
-      <h2 class="dashboard-title">{{ $transaction->code }}</h2>
+      <h2 class="dashboard-title">#{{ $transaction->code }}</h2>
       <p class="dashboard-subtitle">
-        Transaksi Detail
+        Detail Transaksi
       </p>
     </div>
     <div class="dashboard-content" id="transactionDetails">
@@ -42,11 +42,29 @@
                       </div>
                     </div>
                     <div class="col-12 col-md-6">
+                      <div class="product-title">Nama Toko</div>
+                      <div class="product-subtitle">
+                        {{ $transaction->product->user->store_name }}
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="product-title">Alamat Toko</div>
+                      <div class="product-subtitle">
+                        {{ $transaction->product->user->store_address }}
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="product-title">Lihat Alamat Toko Di Maps</div>
+                      <div class="product-subtitle">
+                        {{ $transaction->product->user->maps_store }}
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
                       <div class="product-title">
                         Tanggal Transaksi
                       </div>
                       <div class="product-subtitle">
-                        {{ $transaction->created_at }}
+                        {{ $transaction->transaction->created_at }}
                       </div>
                     </div>
                     <div class="col-12 col-md-6">
@@ -66,9 +84,9 @@
                       </div>
                     </div>
                     <div class="col-12 col-md-6">
-                      <div class="product-title">Status</div>
-                      <div class="product-subtitle text-danger">
-                      {{ $transaction->transaction->transaction_status }}
+                      <div class="product-title">Status Barang</div>
+                      <div class="product-subtitle text-danger">  
+                        {{ $transaction->status_details }}
                       </div>
                     </div>
                     <div class="col-12 col-md-6">
@@ -85,11 +103,18 @@
                         {{ $transaction->transaction->phone_number}}
                       </div>
                     </div>
+                    <div class="col-12 col-md-6">
+                      <div class="product-title">Resi Kamu</div>
+                      <div class="product-subtitle">
+                        {{ $transaction->resi}}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
               <form action="{{ route('dashboard-transaction-update', $transaction->id) }}" method="POST" enctype="multipart/form-data">
               @csrf
+              
                 <div class="row">
                   <div class="col-12 mt-4">
                     <h5>
@@ -123,60 +148,67 @@
                           <div class="product-title">Foto Selfie</div>
                         </div>
                       </div>
-                      
-                      <div class="col-12">
-                        <div class="row">
-                          <div class="col-md-3">
-                            <div class="product-title">Status Detail</div>
-                            <select
-                              name="status_details"
-                              id="status"
-                              class="form-control"
-                              v-model="status"
-                            >
-                              
-                              <option value="BELUM DIAMBIL">Belum Diambil</option>
-                              <option value="SUDAH DIAMBIL">Sudah Diambil</option>
-                              <option value="BELUM DIKEMBALIKA">Belum Dikembalikan</option>
-                            </select>
-                          </div>
-                          <template v-if="status == 'BELUM DIAMBIL'">
+                      @if($transaction->product->users_id == Auth::user()->id)
+                        <div class="col-12">
+                          <div class="row">
                             <div class="col-md-3">
-                              <div class="product-title">
-                                Input Resi
-                              </div>
-                              <input
+                              <div class="product-title">Update Status Barang</div>
+                              <select
+                                name="status_details"
+                                id="status"
                                 class="form-control"
-                                type="text"
-                                name="resi"
-                                v-model="resi"
-                              />
-                            </div>
-                            <div class="col-md-2">
-                              <button
-                                type="submit"
-                                class="btn btn-success btn-block mt-4"
+                                v-model="status"
                               >
-                                Update Resi
-                              </button>
+                                <option value="BELUM DIAMBIL">Belum Diambil</option>
+                                <option value="SUDAH DIAMBIL">Sudah Diambil</option>
+                                <option value="BELUM DIKEMBALIKAN">Belum Dikembalikan</option>
+                              </select>
                             </div>
-                          </template>
+                            <template v-if="status == 'BELUM DIAMBIL'">
+                              <div class="col-md-3">
+                                <div class="product-title">
+                                  Input Resi
+                                </div>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  name="resi"
+                                  v-model="resi"
+                                />
+                              </div>
+                              <div class="col-md-2">
+                                <button
+                                  type="submit"
+                                  class="btn btn-success btn-block mt-4"
+                                >
+                                  Update Resi
+                                </button>
+                              </div>
+                            </template>
+                          </div>
                         </div>
-                      </div>
+                        
+                          <div class="col-12 text-right">
+                            <button
+                              type="submit"
+                              class="btn btn-success btn-lg mt-4"
+                            >
+                              Simpan Sekarang
+                            </button>
+                          </div>
+                        
+                      @else
+                        <div class="container">
+
+                        </div>
+                      @endif
                     </div>
-                    <div class="row mt-4">
-                      <div class="col-12 text-right">
-                        <button
-                          type="submit"
-                          class="btn btn-success btn-lg mt-4"
-                        >
-                          Simpan Sekarang
-                        </button>
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
               </form>
+
+              
             </div>
           </div>
         </div>

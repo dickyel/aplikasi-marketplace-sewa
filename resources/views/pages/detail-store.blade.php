@@ -60,25 +60,9 @@
         <div class="row">
           <div class="col-lg-8">
             <h1>{{ $user->store_name }}</h1>
+            
             <div class="owner">By. {{ $user->name }}</div>
-            <div class="rating-user">
-              <div class="star-icon">
-                <input type="radio" name="rating1" id="rating1">
-                <label for="rating1" class="fa fa-star"></label>
-                <input type="radio" name="rating2" id="rating2">
-                <label for="rating2" class="fa fa-star"></label>
-                <input type="radio" name="rating3" id="rating3">
-                <label for="rating3" class="fa fa-star"></label>
-                <input type="radio" name="rating4" id="rating4">
-                <label for="rating4" class="fa fa-star"></label>
-                <input type="radio" name="rating5" id="rating5">
-                <label for="rating5" class="fa fa-star"></label>
-              </div>
-              <div class="owner">
-                5.0/5.0
-              </div>
-            </div>
-          </div>
+            
           
         </div>
       </div>
@@ -127,14 +111,30 @@
                     ">
                   </div>
                 </div>
+                <br>
+                <div class="rating-user">
+                  <div class="star-icon">
+                    <input type="radio" name="rating1" id="rating1">
+                    <label for="rating1" class="fa fa-star"></label>
+                    <input type="radio" name="rating2" id="rating2">
+                    <label for="rating2" class="fa fa-star"></label>
+                    <input type="radio" name="rating3" id="rating3">
+                    <label for="rating3" class="fa fa-star"></label>
+                    <input type="radio" name="rating4" id="rating4">
+                    <label for="rating4" class="fa fa-star"></label>
+                    <input type="radio" name="rating5" id="rating5">
+                    <label for="rating5" class="fa fa-star"></label>
+                  </div>
+                  <div class="owner">
+                    5.0/5.0
+                  </div>
+                </div>
                 <div class="products-text">
                 {{  $product->name }}        
                 </div>
-                <div>
-                  Oleh.{{ $product->user->store_name }}
-                </div>
+                
                 <div class="products-price">
-                  Rp.  Rp.{{ $product->price }}
+                  Rp. {{ $product->price }}
                 </div>
                 <div class="products-price">
                 {{ $product->day }} Hari

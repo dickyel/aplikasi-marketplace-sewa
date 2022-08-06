@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Swa Mobile Category
+    Swa Mobile Kategori
 @endsection
 
 @section('content')
@@ -56,42 +56,65 @@
       </div>
       <div class="row">
           @php $incrementProduct = 0 @endphp
-          @forelse ($products as $product)
-          <div
-            class="col-6 col-md-4 col-lg-3"
-            data-aos="fade-up"
-            data-aos-delay="{{ $incrementProduct+= 100 }}"
-          >
-            <a class="component-products d-block" href="{{ route('detail-product', $product->slug) }}">
-              <div class="products-thumbnail">
-                <div
-                  class="products-image"
-                  style="
-                   @if($product->galleries->count())
-                      background-image: url('{{ Storage::url($product->galleries->first()->photos) }}')
-                    @else
-                      background-color: #eee
-                    @endif
-                  "
-                ></div>
+        @if(!empty($products) && $products->count())
+          @foreach($products as $product)
+              <div
+                class="col-6 col-md-4 col-lg-3"
+                data-aos="fade-up"
+                data-aos-delay="{{ $incrementProduct+= 100 }}"
+              >
+                <a class="component-products d-block" href="{{ route('detail-product', $product->slug) }}">
+                  <div class="products-thumbnail">
+                    <div
+                      class="products-image"
+                      style="
+                      @if($product->galleries->count())
+                          background-image: url('{{ Storage::url($product->galleries->first()->photos) }}')
+                        @else
+                          background-color: #eee
+                        @endif
+                      "
+                    ></div>
+                  </div>
+                  <div class="products-text">
+                    {{  $product->user->store_name }}
+                  </div>
+                  <div class="products-text">------------------------</div>
+                  <div class="rating-user">
+                    <div class="star-icon">
+                      <input type="radio" name="rating1" id="rating1">
+                      <label for="rating1" class="fa fa-star"></label>
+                      <input type="radio" name="rating2" id="rating2">
+                      <label for="rating2" class="fa fa-star"></label>
+                      <input type="radio" name="rating3" id="rating3">
+                      <label for="rating3" class="fa fa-star"></label>
+                      <input type="radio" name="rating4" id="rating4">
+                      <label for="rating4" class="fa fa-star"></label>
+                      <input type="radio" name="rating5" id="rating5">
+                      <label for="rating5" class="fa fa-star"></label>
+                    </div>
+                    <div class="owner">
+                      5.0/5.0
+                    </div>
+                  </div>
+                  
+                  <div class="products-text">
+                    {{ $product->name }}
+                  </div>
+                  <div class="owner">
+                    By.{{ $product->user->store_name }}
+                  </div>
+                  <div class="products-price">
+                    Rp. {{ $product->price }}
+                  </div>          
+                  <div class="products-price">
+                    {{ $product->day }} Hari
+                  </div>
+                </a>
               </div>
-              
-              <div class="products-text">
-                {{ $product->name }}
-              </div>
-              <div class="owner">
-                By.{{ $product->user->store_name }}
-              </div>
-              <div class="products-price">
-                Rp. {{ $product->price }}
-              </div>          
-              <div class="products-price">
-                {{ $product->day }} Hari
-              </div>
-            </a>
-          </div>
+          @endforeach
         
-        @empty
+        @else
           <div
             class="col-12 text-center py-5"
             data-aos="fade-up"
@@ -99,11 +122,11 @@
           >
             Tidak ada produk terbaru
           </div>
-        @endforelse
-      </div>
+        @endif
+      </div><br><br>
       <div class="row">
         <div class="col-12 mt-4">
-          {{ $products->links() }}
+        {!! $products->appends(Request::all())->links() !!}
         </div>
       </div>
     </div>

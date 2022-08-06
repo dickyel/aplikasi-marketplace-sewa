@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\User;
+use App\Category;
 use App\Comment;
 use App\Product;
 
@@ -22,9 +23,13 @@ class StoreController extends Controller
      */
     public function index()
     {
-        $users = User::where('store_status', 1)->get();
-        return view('pages.store',[
-            'users' => $users
+        
+        $users = User::where('store_status', 1)->paginate(12);
+        $categories = Category::get();
+        
+        return view(' pages.store',[
+            'users' => $users,
+            'categories' => $categories
         ]);
     }
 
@@ -32,14 +37,14 @@ class StoreController extends Controller
     {
         $users = User::all();
         $user  = User::where('store_name', $store_name)->firstOrFail();
-        
         $products = Product::where('users_id', $user->id)
-                    ->get();        
+                    ->paginate(12);
+        $categories = Category::get();        
         return view('pages.detail-store',[
             'users' => $users,
             'user' => $user,
-        
-            'products' => $products
+            'products' => $products,
+            'categories' => $categories
         ]);
     }
 

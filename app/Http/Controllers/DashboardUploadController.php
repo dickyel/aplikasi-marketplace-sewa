@@ -36,7 +36,7 @@ class DashboardUploadController extends Controller
             
             'ktp_photo' => $request->file('ktp_photo')->store('assets/user','public'),
             'selfie_photo' => $request->file('selfie_photo')->store('assets/user','public'),
-           'logo_store' => $request->file('logo_store')->store('assets/user','public'),
+            'logo_store' => $request->file('logo_store')->store('assets/user','public'),
         ];
 
         $item->update($data);

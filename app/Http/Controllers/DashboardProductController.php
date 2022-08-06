@@ -35,7 +35,6 @@ class DashboardProductController extends Controller
         $product = Product::with(['galleries','user','category'])->findOrFail($id);
         $categories = Category::all();
         
-
         return view('pages.dashboard-product-detail',[
             'product' => $product,
             'categories' => $categories

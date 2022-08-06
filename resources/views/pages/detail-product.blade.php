@@ -67,6 +67,63 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8">
+            <div class="rating-user">
+              @if($results == 5)
+                <div class="star-icon">
+                  <input type="radio" name="rating1" id="rating1">
+                  <label for="rating1" class="fa fa-star"></label>
+                  <input type="radio" name="rating2" id="rating2">
+                  <label for="rating2" class="fa fa-star"></label>
+                  <input type="radio" name="rating3" id="rating3">
+                  <label for="rating3" class="fa fa-star"></label>
+                  <input type="radio" name="rating4" id="rating4">
+                  <label for="rating4" class="fa fa-star"></label>
+                  <input type="radio" name="rating5" id="rating5">
+                  <label for="rating5" class="fa fa-star"></label>
+                </div>
+              @elseif($results == 4)
+                <div class="star-icon">
+                  <input type="radio" name="rating1" id="rating1">
+                  <label for="rating1" class="fa fa-star"></label>
+                  <input type="radio" name="rating2" id="rating2">
+                  <label for="rating2" class="fa fa-star"></label>
+                  <input type="radio" name="rating3" id="rating3">
+                  <label for="rating3" class="fa fa-star"></label>
+                  <input type="radio" name="rating4" id="rating4">
+                  <label for="rating4" class="fa fa-star"></label>
+                </div>
+              @elseif($results == 3)
+                <div class="star-icon">
+                  <input type="radio" name="rating1" id="rating1">
+                  <label for="rating1" class="fa fa-star"></label>
+                  <input type="radio" name="rating2" id="rating2">
+                  <label for="rating2" class="fa fa-star"></label>
+                  <input type="radio" name="rating3" id="rating3">
+                  <label for="rating3" class="fa fa-star"></label>
+                </div>
+              @elseif($results == 2)
+                <div class="star-icon">
+                  <input type="radio" name="rating1" id="rating1">
+                  <label for="rating1" class="fa fa-star"></label>
+                  <input type="radio" name="rating2" id="rating2">
+                  <label for="rating2" class="fa fa-star"></label>
+                </div>
+              @elseif($results == 1)
+                <div class="star-icon">
+                  <input type="radio" name="rating1" id="rating1">
+                  <label for="rating1" class="fa fa-star"></label>
+                </div>
+              @elseif($results <= 1)
+                <div class="star-icon">
+                  "Belum ada yang Rating"
+                </div>
+              @endif
+              
+              <div class="owner">
+               
+                  {{$results}}/5 ({{$comment_count}})
+              </div>
+            </div>
             <h1>{{ $product->name }}</h1>
             <div class="owner">By {{ $product->user->store_name }}</div>
             <div class="price">Rp. {{ number_format($product->price) }}</div>
@@ -109,6 +166,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-8 mt-3">
+          @auth
             <h3>Tinggalkan Review & Komentar</h3>
             <p>Gunakan Bahasa yang sopan dan santun</p>
           </div>
@@ -117,7 +175,7 @@
           <div class="col-12 col-lg-8 mb-3">
 
             <ul class="list-unstyled">
-            @auth
+            
                     <form action="{{ route('detail-product-comment') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                       <input type="hidden" name="products_id" value="{{ $product->id }}">
@@ -209,7 +267,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-8 mt-3 mb-3">
-            <h5>Review Pelanggan </h5>
+            <h5>Review Pelanggan ({{$comment_count}})</h5>
           </div>
         </div>
         <div class="row">
