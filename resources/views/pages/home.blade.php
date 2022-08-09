@@ -83,7 +83,7 @@
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          <a class="component-categories d-block" href="{{ route('recommendation-store') }}">
+          <a class="component-categories d-block" href="{{ route('recommend') }}">
             <div class="categories-image">
               <img
                 src="/rating.svg"

@@ -81,7 +81,7 @@
                   <input type="radio" name="rating5" id="rating5">
                   <label for="rating5" class="fa fa-star"></label>
                 </div>
-              @elseif($results == 4)
+              @elseif($results >= 4 && $results < 5)
                 <div class="star-icon">
                   <input type="radio" name="rating1" id="rating1">
                   <label for="rating1" class="fa fa-star"></label>
@@ -92,7 +92,7 @@
                   <input type="radio" name="rating4" id="rating4">
                   <label for="rating4" class="fa fa-star"></label>
                 </div>
-              @elseif($results == 3)
+              @elseif($results >= 3 && $results < 4)
                 <div class="star-icon">
                   <input type="radio" name="rating1" id="rating1">
                   <label for="rating1" class="fa fa-star"></label>
@@ -101,19 +101,19 @@
                   <input type="radio" name="rating3" id="rating3">
                   <label for="rating3" class="fa fa-star"></label>
                 </div>
-              @elseif($results == 2)
+              @elseif($results >= 2 && $results < 3)
                 <div class="star-icon">
                   <input type="radio" name="rating1" id="rating1">
                   <label for="rating1" class="fa fa-star"></label>
                   <input type="radio" name="rating2" id="rating2">
                   <label for="rating2" class="fa fa-star"></label>
                 </div>
-              @elseif($results == 1)
+              @elseif($results >= 1 && $results < 2)
                 <div class="star-icon">
                   <input type="radio" name="rating1" id="rating1">
                   <label for="rating1" class="fa fa-star"></label>
                 </div>
-              @elseif($results <= 1)
+              @elseif($results < 1)
                 <div class="star-icon">
                   "Belum ada yang Rating"
                 </div>

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home');
-// Route::get('/recommendation',)
+Route::get('/recommendation', 'RecommendedController@index')->name('recommend');
 
 Route::get('/categories', 'CategoryController@index')->name('categories');
 Route::get('/categories/{id}', 'CategoryController@detail')->name('categories-detail');
@@ -26,8 +26,6 @@ Route::post('/detail-product/comment-product','DetailProductController@comment')
 
 Route::get('/stores', 'StoreController@index')->name('stores');
 Route::get('/stores/{id}', 'StoreController@detail')->name('detail-store');
-Route::get('/recommendation','RecommendedController@index')->name('recommended');
-
 Route::get('/product-store/{id}', 'ProductStoreController@index')->name('product-store');
 
 Route::get('/recommendation-store', 'RecommendationStoreController@index')->name('recommendation-store');
