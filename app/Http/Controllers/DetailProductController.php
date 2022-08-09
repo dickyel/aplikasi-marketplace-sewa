@@ -33,19 +33,14 @@ class DetailProductController extends Controller
         }elseif($rating!=0){
             $results = $rating /$comment_count;
         }
-
-        
         
         return view('pages.detail-product', [
             'product' => $product,
             'comment' => $comment,
             'comment_count' => $comment_count,
             'results' => $results,
-           
-           
         ]);
-
-        
+ 
     }
 
     public function add(Request $request, $id)

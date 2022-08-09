@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Swa Mobile Detail Product
+    Swa Mobile Detail Produk
 @endsection
 
 @section('content')
@@ -125,9 +125,15 @@
               </div>
             </div>
             <h1>{{ $product->name }}</h1>
-            <div class="owner">By {{ $product->user->store_name }}</div>
-            <div class="price">Rp. {{ number_format($product->price) }}</div>
-            <div class="price">{{ $product->day }} Hari</div>
+            <div class="owner">
+              By {{ $product->user->store_name }}
+            </div>
+            <div class="price">
+              Rp. {{ number_format($product->price) }}
+            </div>
+            <div class="price">
+              {{ $product->day }} Hari
+            </div>
           </div>
           <div class="col-lg-2" data-aos="zoom-in">
             @auth
@@ -147,7 +153,6 @@
                 >Login Ke Akun Kamu
               </a>
             @endauth
-
             
           </div>
         </div>
@@ -214,15 +219,13 @@
                                 <label class="fa fa-star">☆</label>
                                 <label class="fa fa-star">☆</label>
                                 
-                                
                               </div>
                             </option>
                             <option value="2">
                               <div class="star-icon">
                                 
                                 <label class="fa fa-star">☆</label>
-                                <label class="fa fa-star">☆</label>
-                                
+                                <label class="fa fa-star">☆</label>      
                                 
                               </div>
                             </option>
@@ -351,9 +354,7 @@
                     </li>
                   </ul>
                 @endif
-              
-                  
-                
+          
             </ul>
           </div>
         </div>

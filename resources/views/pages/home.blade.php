@@ -70,6 +70,7 @@
       </div>
     </div>
   </section>
+  @auth
   <section class="store-trend-categories">
     <div class="container">
       <div class="row">
@@ -100,6 +101,7 @@
       </div>
     </div>
   </section>
+  @endauth
   <section class="store-new-products">
     <div class="container">
         <div class="row">
@@ -132,19 +134,14 @@
                                   @endif
                               "
                               ></div>
-                          </div>
-                          <div class="products-text">
-                            {{  $product->user->store_name }}
-                          </div>
-                          <div class="products-text">------------------------</div>
-                          
+                          </div>                          
 
                           <div class="products-text">
                             {{  $product->name }}
                           </div>
                       
-                          <div>
-                          <h6>{{ $product->category->name }}</h6>
+                          <div class="owner">
+                            By. {{ $product->user->store_name }}
                           </div>
                     
                           <div class="products-price">
