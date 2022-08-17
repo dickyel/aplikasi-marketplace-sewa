@@ -148,7 +148,7 @@
                       class="btn btn-secondary btn-block mt-3"
                       onclick="thisFileUpload()"
                     >
-                      Add Photo
+                      Tambah Foto
                     </button>
                   </form>
                 </div>

@@ -45,7 +45,7 @@
             <a
               href="{{ route('dashboard-comment') }}"
               class="list-group-item list-group-item-action {{ (request()->is('dashboard/comment*')) ? 'active' : '' }}"
-              >Komentar & Rating</a
+              >Komentar</a
             >
             
             <a
@@ -131,6 +131,14 @@
                       >Pengaturan</a
                     >
                     
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    
                   </div>
                 </li>
                 <li class="nav-item">
@@ -172,20 +180,17 @@
                             <img src="/images/icon-cart-empty.svg" alt="" />
                         @endif
                     </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </li>
               </ul>
-              <ul class="navbar-nav d-block d-lg-none">
-                    <li class="nav-item">
-                        <a href="{{ route('dashboard') }}" class="nav-link">
-                            Hi, {{ Auth::user()->name }}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('cart') }}" class="nav-link d-inline-block">
-                            Keranjang
-                        </a>
-                    </li>
-              </ul>
+              
             </div>
           </nav>
 

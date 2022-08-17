@@ -98,14 +98,31 @@
 
           <ul class="navbar-nav d-block d-lg-none">
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="{{ route('dashboard') }}" class="nav-link">
                 Hi, {{ Auth::user()->name }}
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-inline-block">
-                Cart
+              <a href="{{ route('cart') }}" class="nav-link d-inline-block">
+                  @php
+                    $carts = \App\Cart::where('users_id', Auth::user()->id)->count();
+                  @endphp
+                  
+                  @if($carts > 0)
+                    <img src="/images/icon-cart-filled.svg" alt="" />
+                    <div class="card-badge">{{ $carts }}</div>
+                  @else
+                    <img src="/images/icon-cart-empty.svg" alt="" />
+                  @endif
               </a>
+              <a 
+                href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();"
+                class="dropdown-item" >Logout</a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
             </li>
           </ul>
           @endauth

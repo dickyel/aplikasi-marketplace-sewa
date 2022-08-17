@@ -45,7 +45,7 @@ class ProductController extends Controller
                                     <a class="dropdown-item" href="' . route('product.edit', $item->id) . '">
                                         Edit
                                     </a>
-                                    <form action="' . route('user.destroy', $item->id) . '" method="POST">
+                                    <form action="' . route('product.destroy', $item->id) . '" method="POST">
                                         ' . method_field('delete') . csrf_field() . '
                                         <button type="submit" class="dropdown-item text-danger">
                                             Hapus

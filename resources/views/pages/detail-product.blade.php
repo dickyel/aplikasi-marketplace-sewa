@@ -158,6 +158,8 @@
         </div>
       </div>
     </section>
+    
+      
     <section class="store-description">
       <div class="container">
         <div class="row">
@@ -167,20 +169,23 @@
         </div>
       </div>
     </section>
-    <section class="store-review">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-lg-8 mt-3">
-          @auth
-            <h3>Tinggalkan Review & Komentar</h3>
-            <p>Gunakan Bahasa yang sopan dan santun</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 col-lg-8 mb-3">
-
-            <ul class="list-unstyled">
-            
+    
+    @auth  
+      @if(!$dataComment)
+        <section class="store-review">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-lg-8 mt-3">
+              
+                <h3>Tinggalkan Review & Komentar</h3>
+                <p>Gunakan Bahasa yang sopan dan santun</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-lg-8 mb-3">
+                
+                  <ul class="list-unstyled">
+                    
                     <form action="{{ route('detail-product-comment') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                       <input type="hidden" name="products_id" value="{{ $product->id }}">
@@ -258,14 +263,17 @@
                         Kirim
                       </button>
                     </form>
-                  @endauth 
-                 
-              
-            </ul>
+                
+                      
+                    
+                  </ul>
+                
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      @endif
+    @endauth 
     <section class="store-review">
       <div class="container">
         <div class="row">

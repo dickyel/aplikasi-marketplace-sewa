@@ -21,9 +21,21 @@ class DetailProductController extends Controller
     public function index(Request $request, $id)
     {
         $product = Product::with(['galleries','user'])->where('slug', $id)->firstOrFail();
+       
         
         $comment = Comment::where('products_id',$product->id)->with('user')->get();
+
+
+        $dataComment = null;
+
         
+        if(Auth::check())
+        {
+            $dataComment = Comment::where('products_id', $product->id)->where('users_id', Auth::user()->id)->first();
+            
+        }
+        
+
         $comment_count = $comment->count();
         $rating = Comment::where('products_id',$product->id)->sum('rating');
                
@@ -31,14 +43,18 @@ class DetailProductController extends Controller
             $results = $comment_count;
             
         }elseif($rating!=0){
-            $results = $rating /$comment_count;
+            $results = $rating / $comment_count;
         }
+        
+        // return $checkComment;
+       
         
         return view('pages.detail-product', [
             'product' => $product,
             'comment' => $comment,
             'comment_count' => $comment_count,
             'results' => $results,
+            'dataComment' => $dataComment 
         ]);
  
     }

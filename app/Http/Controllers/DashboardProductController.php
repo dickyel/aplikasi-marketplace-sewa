@@ -101,4 +101,15 @@ class DashboardProductController extends Controller
 
         return redirect()->route('dashboard-product');
     }
+
+    public function destroy($id) 
+    {
+        //
+        $item = Product::findOrFail($id);
+        
+        $item->delete();
+
+        return redirect()->route('dashboard-product', $item->products_id);
+
+    }
 }

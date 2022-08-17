@@ -28,7 +28,7 @@
         </div>
         <div class="row mt-4">
             @foreach($products as $product)
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="col-12 col-sm-8 col-md-4 col-lg-3">
                     <a
                     class="card card-dashboard-product d-block"
                     href="{{ route('dashboard-product-details', $product->id) }}"
@@ -43,8 +43,14 @@
                             <div class="product-category">{{ $product->category->name }}</div>
                             <div class="product-category">{{ $product->day }} Hari</div>
                             <div class="product-category">Rp. {{ $product->price }}</div>
+                            <!-- <a
+                                href="{{route('dashboard-product-delete', $product->id)}}"
+                                class="btn btn-danger col-12"
+                                >Hapus</a
+                            >     -->
                         </div>
                     </a>
+                    
                 </div>
             @endforeach
         </div>

@@ -94,7 +94,7 @@
                                     type="submit"
                                     class="btn btn-success px-5"
                                     >
-                                    Save Now
+                                    Simpan Sekarang
                                     </button>
                                 </div>
                             </div>

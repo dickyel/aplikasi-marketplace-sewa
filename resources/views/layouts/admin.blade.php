@@ -52,7 +52,7 @@
             <a
               href="{{ route('comment.index') }}"
               class="list-group-item list-group-item-action {{ (request()->is('admin/comment*')) ? 'active' : '' }} "
-              >Komen Toko</a
+              >Komen Produk</a
             >
             <a
               href="{{ route('transaction.index') }}"
@@ -65,6 +65,12 @@
             href="{{ route('user.index') }}"
               class="list-group-item list-group-item-action {{ (request()->is('admin/user*')) ? 'active' : '' }}"
               >User</a
+            >
+
+            <a
+            href="{{ route('user.index') }}"
+              class="list-group-item list-group-item-action {{ (request()->is('admin/user*'))   }}"
+              >Keluar</a
             >
             
           </div>
